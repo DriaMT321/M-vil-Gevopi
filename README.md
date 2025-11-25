@@ -2,18 +2,28 @@
 
 Aplicación móvil de GEVOPI desarrollada con React Native y Expo.
 
+## ⚠️ Importante - Después de Descargar
+
+Cuando descargues este proyecto desde GitHub, la carpeta `node_modules` **NO** estará incluida (esto es normal en proyectos Node.js). **DEBES instalar las dependencias** antes de ejecutar la aplicación.
+
 ## Requisitos
 
 - Node.js v22.18.0 o superior
 - npm v10.9.3 o superior
-- Expo CLI
+- Expo CLI (se instalará automáticamente con las dependencias)
 
 ## Instalación
 
+### 1. Navegar a la carpeta del proyecto
 ```bash
 cd gevopi-app
+```
+
+### 2. Instalar todas las dependencias (OBLIGATORIO)
+```bash
 npm install
 ```
+Este comando descargará todas las librerías necesarias en la carpeta `node_modules` (aproximadamente 1000+ paquetes)
 
 ## Ejecución
 
