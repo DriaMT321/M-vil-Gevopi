@@ -12,8 +12,13 @@ export const getVoluntarios = async () => {
   };
   
   export const getVoluntarioByCi = async (ci) => {
-    const voluntarios = await getVoluntarios();
-    return voluntarios.find(v => v.ci === ci);
+    const token = getToken();
+    const response = await api.get(`/usuarios/ci/${ci}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
   };
 
 export const getVoluntarioByUsuarioId = async (id) => {
