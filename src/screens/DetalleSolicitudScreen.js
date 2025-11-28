@@ -7,7 +7,7 @@ import {
     TouchableWithoutFeedback,
     Linking,
 } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapViewWrapper from '../components/MapViewWrapper';
 import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import styles from '../styles/detalleSolicitudStyles';
 import colors from '../themes/colors';
@@ -70,24 +70,12 @@ export default function DetalleSolicitudScreen() {
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
             <View style={styles.container}>
-                <MapView
+                <MapViewWrapper
+                    latitude={solicitud.latitud}
+                    longitude={solicitud.longitud}
+                    description={solicitud.descripcion}
                     style={styles.map}
-                    initialRegion={{
-                        latitude: parseFloat(solicitud.latitud),
-                        longitude: parseFloat(solicitud.longitud),
-                        latitudeDelta: 0.01,
-                        longitudeDelta: 0.01,
-                    }}
-                >
-                    <Marker
-                        coordinate={{
-                            latitude: parseFloat(solicitud.latitud),
-                            longitude: parseFloat(solicitud.longitud),
-                        }}
-                        title="Ubicación"
-                        description={solicitud.descripcion}
-                    />
-                </MapView>
+                />
 
                 {/* Botón de volver fijo */}
                 <TouchableOpacity
