@@ -8,7 +8,7 @@ export const getVoluntarios = async () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    return response.data;
+    return response.data.data || response.data; // Retorna el array de data
   };
   
   export const getVoluntarioByCi = async (ci) => {
